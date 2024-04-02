@@ -1,0 +1,1 @@
+export { TagsPagination } from "./TagsPagination";
