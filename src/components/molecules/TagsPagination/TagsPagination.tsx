@@ -1,0 +1,105 @@
+import { disableButton } from "@/helpers/disableButton";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
+import { SearchParamsType } from "@/types";
+
+interface TagsPagination {
+  searchParams: SearchParamsType;
+  tagsTotalNumber: number;
+  pageSize: number;
+  currentPage: number;
+  hasMore?: boolean;
+}
+
+export const TagsPagination = ({
+  searchParams,
+  tagsTotalNumber,
+  pageSize,
+  currentPage,
+  hasMore,
+}: TagsPagination) => {
+  const numberOfPages = Math.ceil(tagsTotalNumber / pageSize);
+
+  const getPagesToShow = () => {
+    let startPage = currentPage - 2;
+    let endPage = currentPage + 2;
+
+    if (currentPage <= 3) {
+      startPage = 1;
+      endPage = 5;
+    } else if (currentPage >= numberOfPages - 2) {
+      startPage = numberOfPages - 4;
+      endPage = numberOfPages;
+    }
+
+    const pagesToShow = Array.from(
+      { length: endPage - startPage + 1 },
+      (_, i) => startPage + i,
+    );
+
+    return pagesToShow;
+  };
+
+  const renderPaginationLinks = () => {
+    const pages = getPagesToShow();
+
+    return pages.map((pageNumber) => {
+      return (
+        <PaginationItem key={pageNumber}>
+          <PaginationLink
+            isActive={currentPage === pageNumber}
+            href={{
+              pathname: "/tags",
+              query: {
+                ...searchParams,
+                page: pageNumber,
+              },
+            }}
+          >
+            {pageNumber}
+          </PaginationLink>
+        </PaginationItem>
+      );
+    });
+  };
+
+  return (
+    <Pagination className="py-4">
+      <PaginationContent>
+        <PaginationItem>
+          <PaginationPrevious
+            href={{
+              pathname: "/tags",
+              query: {
+                ...searchParams,
+                page: currentPage - 1,
+              },
+            }}
+            {...disableButton(currentPage === 1)}
+          />
+        </PaginationItem>
+        {renderPaginationLinks()}
+        <PaginationItem>{hasMore && <PaginationEllipsis />}</PaginationItem>
+        <PaginationItem>
+          <PaginationNext
+            href={{
+              pathname: "/tags",
+              query: {
+                ...searchParams,
+                page: currentPage + 1,
+              },
+            }}
+            {...disableButton(!hasMore)}
+          />
+        </PaginationItem>
+      </PaginationContent>
+    </Pagination>
+  );
+};
