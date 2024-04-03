@@ -7,16 +7,16 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
+import { DEFAULT_ERROR_MESSAGE } from "@/constants";
 import { ErrorDataType } from "@/types";
 import Link from "next/link";
 
 interface ErrorDialog {
   errorData?: ErrorDataType;
+  customButton?: JSX.Element;
 }
 
-const defaultErrorMessage = "Something went wrong!";
-
-export const ErrorDialog = ({ errorData }: ErrorDialog) => {
+export const ErrorDialog = ({ errorData, customButton }: ErrorDialog) => {
   return (
     <AlertDialog open>
       <AlertDialogContent>
@@ -27,14 +27,15 @@ export const ErrorDialog = ({ errorData }: ErrorDialog) => {
             </AlertDialogTitle>
           )}
           <AlertDialogDescription>
-            {errorData?.error_message || defaultErrorMessage}
+            {errorData?.error_message || DEFAULT_ERROR_MESSAGE}
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
           <div className="flex flex-row gap-2">
             <Button asChild>
-              <Link href="/">Back to homepage</Link>
+              <Link href="/">Go Back</Link>
             </Button>
+            {customButton}
           </div>
         </AlertDialogFooter>
       </AlertDialogContent>

@@ -9,6 +9,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { DEFAULT_ORDER, DEFAULT_SORT, MIN_TAGS_PER_PAGE } from "@/constants";
+import { isFetchBaseError } from "@/helpers";
 import { useGetTagsQuery } from "@/lib/services/api/tags";
 import { ErrorDataType, SearchParamsSortType, TagType } from "@/types";
 import { ErrorDialog } from "../ErrorDialog";
@@ -24,7 +25,7 @@ export const TagsTable = ({ searchParams }: TagsTable) => {
   const order = searchParams?.order || DEFAULT_ORDER;
   const sort = searchParams?.sort || DEFAULT_SORT;
 
-  const { data, isError, isLoading } = useGetTagsQuery({
+  const { data, error, isLoading } = useGetTagsQuery({
     page,
     limit,
     order,
@@ -46,7 +47,10 @@ export const TagsTable = ({ searchParams }: TagsTable) => {
     return renderSkeleton;
   }
 
-  if (isError) {
+  if (isFetchBaseError(error)) {
+    if (error.data) {
+      return <ErrorDialog errorData={error.data as ErrorDataType} />;
+    }
     return <ErrorDialog />;
   }
 

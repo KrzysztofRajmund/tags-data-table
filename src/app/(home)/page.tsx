@@ -17,7 +17,7 @@ export default function Home() {
           Tags Playground
         </h2>
         <p className="pt-4 uppercase">Stackoverflow</p>
-        <Gamepad2 size={56} color="#adefff" />
+        <Gamepad2 size={56} color="#6b21a8" />
       </div>
       <Card className="w-[285px] sm:w-[350px]">
         <CardHeader className="gap-2">
@@ -30,7 +30,7 @@ export default function Home() {
           </CardDescription>
         </CardHeader>
         <CardFooter>
-          <Button variant="outline" asChild>
+          <Button variant="default" asChild>
             <Link href="/tags">Get Tags</Link>
           </Button>
         </CardFooter>

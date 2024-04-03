@@ -15,14 +15,12 @@ export const TableWrapper = ({ children }: TableWrapper) => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Stackoverflow tags</CardTitle>
+        <CardTitle className="text-purple-800">Stackoverflow tags</CardTitle>
         <CardDescription>
           Table of tags with the number of related questions.
         </CardDescription>
       </CardHeader>
-      <CardContent>
-        {children}
-      </CardContent>
+      <CardContent>{children}</CardContent>
     </Card>
   );
 };
