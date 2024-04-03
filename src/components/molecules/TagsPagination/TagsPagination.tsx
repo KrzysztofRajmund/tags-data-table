@@ -1,4 +1,3 @@
-import { disableButton } from "@/helpers/disableButton";
 import {
   Pagination,
   PaginationContent,
@@ -8,10 +7,10 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { SearchParamsType } from "@/types";
-
+import { SearchParamsSortType } from "@/types";
+import { disableButton } from "@/helpers";
 interface TagsPagination {
-  searchParams: SearchParamsType;
+  searchParams: SearchParamsSortType;
   tagsTotalNumber: number;
   pageSize: number;
   currentPage: number;

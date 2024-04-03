@@ -1,3 +1,5 @@
-export type SearchParamsType = {
-  [key: string]: string | undefined;
+export type SortType = "page" | "limit" | "order" | "sort";
+
+export type SearchParamsSortType = {
+  [key in SortType]: string | undefined;
 };

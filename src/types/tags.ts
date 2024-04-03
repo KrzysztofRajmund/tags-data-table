@@ -1,10 +1,10 @@
-export type Tag = {
+export type TagType = {
   name: string;
   count: number;
 };
 
 export type GetTagsApiResponse = {
-  items: Tag[];
+  items: TagType[];
   has_more: boolean;
   page: number;
   page_size: number;
@@ -12,8 +12,8 @@ export type GetTagsApiResponse = {
 };
 
 export type GetTagsApiArgs = {
-  page?: number;
-  limit?: number;
-  order?: string;
-  sort?: string;
+  page: number;
+  limit: number;
+  order: string;
+  sort: string;
 };
