@@ -1,8 +1,10 @@
 "use server";
 
+import { MIN_TAGS_NUMBER_PER_PAGE } from "@/constants";
+
 export const getTags = async ({
   page = 1,
-  limit = 5,
+  limit = MIN_TAGS_NUMBER_PER_PAGE,
   order = "desc",
   sort = "popular",
 }: {
@@ -18,9 +20,7 @@ export const getTags = async ({
       `https://api.stackexchange.com/2.3/tags?page=${page}&pagesize=${limit}&order=${order}&sort=${sort}&site=stackoverflow&filter=${withTagNameAndCountOnly}`,
     );
     const data = await result.json();
-    ///
-    console.log("Actions Data:", data);
-    ///
+
     return data;
   } catch (error) {
     return { error };

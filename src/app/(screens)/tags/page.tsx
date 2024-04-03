@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { MIN_TAGS_NUMBER_PER_PAGE } from "@/constants";
 import { SearchParamsType } from "@/types";
 
 export default async function Tags({
@@ -15,7 +16,7 @@ export default async function Tags({
   searchParams: SearchParamsType;
 }) {
   const page = Number(searchParams?.page) || 1;
-  const limit = Number(searchParams?.limit) || 5;
+  const limit = Number(searchParams?.limit) || MIN_TAGS_NUMBER_PER_PAGE;
 
   const data = await getTags({
     page,
@@ -23,8 +24,6 @@ export default async function Tags({
     order: "desc",
     sort: "popular",
   });
-
-  console.log("DATA:", data);
 
   return (
     <div className="min-w-full lg:min-w-[820px]">
