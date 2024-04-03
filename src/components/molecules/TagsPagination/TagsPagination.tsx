@@ -82,6 +82,7 @@ export const TagsPagination = ({
               },
             }}
             {...disableButton(currentPage === 1)}
+            className="font-semibold"
           />
         </PaginationItem>
         {renderPaginationLinks()}
@@ -96,6 +97,7 @@ export const TagsPagination = ({
               },
             }}
             {...disableButton(!hasMore)}
+            className="font-semibold"
           />
         </PaginationItem>
       </PaginationContent>
