@@ -7,11 +7,11 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
-import { ErrorData } from "@/types";
+import { ErrorDataType } from "@/types";
 import Link from "next/link";
 
 interface ErrorDialog {
-  errorData?: ErrorData;
+  errorData?: ErrorDataType;
 }
 
 const defaultErrorMessage = "Something went wrong!";

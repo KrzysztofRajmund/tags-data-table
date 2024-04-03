@@ -8,21 +8,21 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { MIN_TAGS_NUMBER_PER_PAGE } from "@/constants";
+import { DEFAULT_ORDER, DEFAULT_SORT, MIN_TAGS_PER_PAGE } from "@/constants";
 import { useGetTagsQuery } from "@/lib/services/api/tags";
-import { SearchParamsType, Tag } from "@/types";
+import { ErrorDataType, SearchParamsSortType, TagType } from "@/types";
 import { ErrorDialog } from "../ErrorDialog";
 import { TagsPagination } from "../TagsPagination";
 
 interface TagsTable {
-  searchParams: SearchParamsType;
+  searchParams: SearchParamsSortType;
 }
 
 export const TagsTable = ({ searchParams }: TagsTable) => {
   const page = Number(searchParams?.page) || 1;
-  const limit = Number(searchParams?.limit) || MIN_TAGS_NUMBER_PER_PAGE;
-  const order = searchParams?.order || "desc";
-  const sort = searchParams?.sort || "popular";
+  const limit = Number(searchParams?.limit) || MIN_TAGS_PER_PAGE;
+  const order = searchParams?.order || DEFAULT_ORDER;
+  const sort = searchParams?.sort || DEFAULT_SORT;
 
   const { data, isError, isLoading } = useGetTagsQuery({
     page,
@@ -60,7 +60,7 @@ export const TagsTable = ({ searchParams }: TagsTable) => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {data?.items.map((tag: Tag) => {
+          {data?.items.map((tag: TagType) => {
             return (
               <TableRow key={tag.name}>
                 <TableCell>

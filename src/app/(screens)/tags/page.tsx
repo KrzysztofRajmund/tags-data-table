@@ -1,19 +1,25 @@
 import StoreProvider from "@/app/providers/StoreProvider";
-import { TableWrapper, TagsTable } from "@/components/molecules";
-import { SearchParamsType } from "@/types";
+import {
+  SortOptions,
+  SortOrderButton,
+  TagsLimitOptions,
+  TableWrapper,
+  TagsTable,
+} from "@/components/molecules";
+import { SearchParamsSortType } from "@/types";
 
-export default async function Tags({
+export default function Tags({
   searchParams,
 }: {
-  searchParams: SearchParamsType;
+  searchParams: SearchParamsSortType;
 }) {
   return (
     <div className="min-w-full lg:min-w-[820px]">
       <div className="flex justify-between py-4">
-        <h2>Tags limit</h2>
+        <TagsLimitOptions />
         <div className="flex items-center gap-2">
-          <h2>Sort button</h2>
-          <h2>Sort options</h2>
+          <SortOrderButton />
+          <SortOptions />
         </div>
       </div>
       <TableWrapper>
