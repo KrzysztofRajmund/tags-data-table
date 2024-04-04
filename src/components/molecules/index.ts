@@ -1,5 +1,6 @@
 export { BlockingLoader } from "./BlockingLoader";
 export { ErrorDialog } from "./ErrorDialog";
+export { SearchInput } from "./SearchInput";
 export { SortOptions } from "./SortOptions";
 export { SortOrderButton } from "./SortOrderButton";
 export { TagsPagination } from "./TagsPagination";

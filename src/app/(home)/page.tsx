@@ -17,7 +17,7 @@ export default function Home() {
           Tags Playground
         </h2>
         <p className="pt-4 uppercase">Stackoverflow</p>
-        <Gamepad2 size={56} color="#6b21a8" />
+        <Gamepad2 className="text-brand" size={56}  />
       </div>
       <Card className="w-[285px] sm:w-[350px]">
         <CardHeader className="gap-2">

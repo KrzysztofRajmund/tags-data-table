@@ -15,7 +15,7 @@ export const TableWrapper = ({ children }: TableWrapper) => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-purple-800">Stackoverflow tags</CardTitle>
+        <CardTitle className="text-brand">Stackoverflow tags</CardTitle>
         <CardDescription>
           Table of tags with the number of related questions.
         </CardDescription>

@@ -5,6 +5,7 @@ import {
   TagsLimitOptions,
   TableWrapper,
   TagsTable,
+  SearchInput,
 } from "@/components/molecules";
 import { SearchParamsSortType } from "@/types";
 
@@ -16,7 +17,10 @@ export default function Tags({
   return (
     <div className="min-w-full lg:min-w-[820px]">
       <div className="flex justify-between py-4">
-        <TagsLimitOptions />
+        <div className="flex items-center gap-2">
+          <TagsLimitOptions />
+          <SearchInput search={searchParams.search} />
+        </div>
         <div className="flex items-center gap-2">
           <SortOrderButton />
           <SortOptions />
