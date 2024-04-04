@@ -36,7 +36,7 @@ const Template: StoryFn = () => {
 };
 
 const meta: Meta = {
-  title: "Shadcn/UI/Table",
+  title: "Molecules/Table",
   component: Template,
   parameters: {
     layout: "centered",

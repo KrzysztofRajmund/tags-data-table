@@ -1,5 +1,5 @@
-import React from "react"
-import { BlockingLoader } from "@/components/ui/BlockingLoader";
+import { BlockingLoader } from "@/components/molecules";
+import React from "react";
 
 export default function Loading() {
   return <BlockingLoader />;
