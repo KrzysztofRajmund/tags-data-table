@@ -82,11 +82,12 @@ export const TagsPagination = ({
               },
             }}
             {...disableButton(currentPage === 1)}
-            className="font-semibold"
           />
         </PaginationItem>
         {renderPaginationLinks()}
-        <PaginationItem>{hasMore && <PaginationEllipsis />}</PaginationItem>
+        <PaginationItem>
+          {hasMore && <PaginationEllipsis className="hidden sm:flex" />}
+        </PaginationItem>
         <PaginationItem>
           <PaginationNext
             href={{
@@ -97,7 +98,6 @@ export const TagsPagination = ({
               },
             }}
             {...disableButton(!hasMore)}
-            className="font-semibold"
           />
         </PaginationItem>
       </PaginationContent>
