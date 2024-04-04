@@ -4,7 +4,7 @@ import { Skeleton } from "./skeleton";
 type Story = StoryObj<typeof Skeleton>;
 
 const meta: Meta<typeof Skeleton> = {
-  title: "Shadcn/UI/Skeleton",
+  title: "Atoms/Skeleton",
   component: Skeleton,
   parameters: {
     layout: "centered",

@@ -10,7 +10,7 @@ import {
 type Story = StoryObj<typeof Card>;
 
 const meta: Meta<typeof Card> = {
-  title: "Shadcn/UI/Card",
+  title: "Molecules/Card",
   component: Card,
   parameters: {
     layout: "centered",

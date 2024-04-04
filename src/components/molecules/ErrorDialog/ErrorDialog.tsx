@@ -5,20 +5,25 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from "@/components/ui/alert-dialog";
-import { Button } from "@/components/ui/button";
-import { DEFAULT_ERROR_MESSAGE } from "@/constants";
-import { ErrorDataType } from "@/types";
+} from "../../../components/ui/alert-dialog";
+import { Button } from "../../../components/ui/button";
+import { DEFAULT_ERROR_MESSAGE } from "../../../constants";
+import { ErrorDataType } from "../../../types";
 import Link from "next/link";
 
 interface ErrorDialog {
   errorData?: ErrorDataType;
   customButton?: JSX.Element;
+  openDialog?: boolean;
 }
 
-export const ErrorDialog = ({ errorData, customButton }: ErrorDialog) => {
+export const ErrorDialog = ({
+  errorData,
+  customButton,
+  openDialog = true,
+}: ErrorDialog) => {
   return (
-    <AlertDialog open>
+    <AlertDialog open={openDialog}>
       <AlertDialogContent>
         <AlertDialogHeader>
           {errorData?.error_id && (

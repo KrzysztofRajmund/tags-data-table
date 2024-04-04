@@ -33,7 +33,7 @@ const Template: StoryFn = () => {
 };
 
 const meta: Meta = {
-  title: "Shadcn/UI/Pagination",
+  title: "Molecules/Pagination",
   component: Template,
   parameters: {
     layout: "centered",

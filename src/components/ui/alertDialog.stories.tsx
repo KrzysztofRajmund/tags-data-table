@@ -33,7 +33,7 @@ const Template: StoryFn = () => {
 };
 
 const meta: Meta = {
-  title: "Shadcn/UI/AlertDialog",
+  title: "Molecules/AlertDialog",
   component: Template,
   parameters: {
     layout: "centered",

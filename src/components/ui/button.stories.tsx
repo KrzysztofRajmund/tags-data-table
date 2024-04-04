@@ -4,7 +4,7 @@ import { Button } from "./button";
 type Story = StoryObj<typeof Button>;
 
 const meta: Meta<typeof Button> = {
-  title: "Shadcn/UI/Button",
+  title: "Atoms/Button",
   component: Button,
   parameters: {
     layout: "centered",
