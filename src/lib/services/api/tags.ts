@@ -20,11 +20,11 @@ export const api = createApi({
   endpoints: (build) => ({
     getTags: build.query<GetTagsApiResponse, GetTagsApiArgs>({
       query: (queryArg) => {
-        const search = queryArg.search ? `&inname=${queryArg.search}` : "";
+        const searchQuery = queryArg.search ? `&inname=${queryArg.search}` : "";
         // Default filter to get tags with count and name fields only + tags total count
         const defaultfilter = API_TAGS_FILTER.NAME_COUNT_TOTAL;
         return {
-          url: `/tags?page=${queryArg.page}&pagesize=${queryArg.limit}&order=${queryArg.order}&sort=${queryArg.sort}${search}&site=stackoverflow&filter=${defaultfilter}`,
+          url: `/tags?page=${queryArg.page}&pagesize=${queryArg.limit}&order=${queryArg.order}&sort=${queryArg.sort}${searchQuery}&site=stackoverflow&filter=${defaultfilter}`,
         };
       },
     }),
