@@ -27,7 +27,8 @@ export const TagsLimitOptions = () => {
       onValueChange={handleOnValueChange}
     >
       <SelectTrigger className="w-[125px]">
-        <h4 className="pr-1 font-semibold">Show:</h4> <SelectValue />
+        <h4 className="pr-1 font-semibold">Show:</h4>
+        <SelectValue />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>

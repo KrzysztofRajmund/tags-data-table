@@ -19,7 +19,11 @@ export const SortOrderButton = () => {
   };
 
   return (
-    <Button variant="outline" className="text-purple-800" onClick={sortToggle}>
+    <Button
+      variant="outline"
+      className="hidden text-purple-800 min-[380px]:flex"
+      onClick={sortToggle}
+    >
       {isOrderDescending ? <ArrowDownWideNarrow /> : <ArrowUpNarrowWide />}
     </Button>
   );
