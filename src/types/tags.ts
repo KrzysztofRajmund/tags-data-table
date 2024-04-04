@@ -16,4 +16,5 @@ export type GetTagsApiArgs = {
   limit: number;
   order: string;
   sort: string;
+  search?: string;
 };

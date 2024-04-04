@@ -24,12 +24,14 @@ export const TagsTable = ({ searchParams }: TagsTable) => {
   const limit = Number(searchParams?.limit) || MIN_TAGS_PER_PAGE;
   const order = searchParams?.order || DEFAULT_ORDER;
   const sort = searchParams?.sort || DEFAULT_SORT;
+  const search = searchParams?.search || "";
 
   const { data, error, isLoading } = useGetTagsQuery({
     page,
     limit,
     order,
     sort,
+    search,
   });
 
   const renderSkeleton = (
