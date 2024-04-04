@@ -1,14 +1,14 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Input } from "@/components/ui/search-input";
 import { useSortTags } from "@/hooks";
 import { useDebounce } from "use-debounce";
+import { SearchInput } from "@/components/ui/search-input";
 
-interface SearchInput {
+interface Search {
   search?: string;
 }
 
-export const SearchInput = ({ search }: SearchInput) => {
+export const Search = ({ search }: Search) => {
   const [searchText, setSearchText] = useState(search ?? "");
   const [query] = useDebounce(searchText, 650);
   const { onSortTypeChange } = useSortTags();
@@ -19,10 +19,11 @@ export const SearchInput = ({ search }: SearchInput) => {
 
   return (
     <div className="hidden max-w-[185px] sm:inline-flex">
-      <Input
+      <SearchInput
         type="text"
         placeholder="Search tag..."
         className="pr-10"
+        withIcon
         value={searchText}
         onChange={(e) => {
           setSearchText(e.target.value);
